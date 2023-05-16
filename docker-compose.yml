@@ -1,0 +1,79 @@
+version: "3.0"
+
+services:
+  postgres:
+    container_name: dicoding-capstone-postgres
+    image: "postgres:15-alpine"
+    environment:
+      POSTGRES_USER: "${PG_USER?:PG_USER required}"
+      POSTGRES_PASSWORD: "${PG_PASSWORD?:PG_PASSWORD required}"
+      PGDATA: "/data/postgres"
+    networks:
+      - "local_net"
+    volumes:
+      - postgres:/data/postgres
+  
+  capstone-be:
+    container_name: dicoding-capstone-backend
+    image: "capstone-be"
+    networks:
+      - "local_net"
+    volumes:
+      - "${BE_ROOT_FOLDER?:BE_ROOT_FOLDER required}/conf.yml:/project/capstone/build/conf.yml"
+      - "${BE_ROOT_FOLDER?:BE_ROOT_FOLDER required}/storage/:/project/capstone/build/storage/"
+    depends_on:
+      - "postgres"
+  
+  capstone-be-tools:
+    container_name: dicoding-capstone-backend-tools
+    image: "capstone-be-tools"
+    networks:
+      - "local_net"
+    volumes:
+      - "${BE_ROOT_FOLDER?:BE_ROOT_FOLDER required}/conf.yml:/project/capstone/build/conf.yml"
+      - "${BE_ROOT_FOLDER?:BE_ROOT_FOLDER required}/storage:/project/capstone/build/storage/"
+    depends_on:
+      - "postgres"
+
+  redoc:
+    container_name: dicoding-capstone-docs
+    image: "redocly/redoc:latest"
+    environment:
+      SPEC_URL: "swagger/swagger.json"
+    volumes:
+      - "${BE_ROOT_FOLDER?:BE_ROOT_FOLDER required}/docs/:/usr/share/nginx/html/swagger"
+    networks:
+      - "local_net"
+
+  go:
+    build:
+      context: "./go-1.17"
+    container_name: "go"
+    tty: true
+    volumes:
+      - "./go-1.17/bin:/go/bin"
+      - "./go-1.17/pkg:/go/pkg"
+      - "./go-1.17/src:/go/src"
+      - "${BE_ROOT_FOLDER?:BE_ROOT_FOLDER required}:/app"
+    working_dir: /app
+
+  nginx:
+    container_name: dicoding-capstone-nginx
+    image: "nginx:latest"
+    ports:
+      - 80:80
+    volumes:
+      - "./nginx.conf:/etc/nginx/conf.d/default.conf"
+    networks:
+      - "local_net"
+    depends_on:
+      - "capstone-be"
+      - "redoc"
+
+networks:
+  local_net:
+    external: true
+
+volumes:
+  postgres:
+
