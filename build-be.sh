@@ -21,5 +21,5 @@ docker-compose up -d capstone-be-tools
 docker-compose exec go make generate-docs
 
 # prune docker image
-docker image prune -f
+# docker image prune -f
 

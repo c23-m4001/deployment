@@ -16,5 +16,5 @@ cd $DOCKER_FOLDER_PATH
 docker-compose up -d capstone-fe
 
 # prune docker image
-docker image prune -f
+# docker image prune -f
 
