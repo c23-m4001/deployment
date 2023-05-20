@@ -12,7 +12,13 @@ services:
       - "local_net"
     volumes:
       - postgres:/data/postgres
-  
+
+  capstone-fe:
+    container_name: dicoding-capstone-frontend
+    image: "capstone-fe"
+    networks:
+      - "local_net"
+
   capstone-be:
     container_name: dicoding-capstone-backend
     image: "capstone-be"
@@ -71,6 +77,7 @@ services:
     depends_on:
       - "capstone-be"
       - "redoc"
+      - "capstone-fe"
 
 networks:
   local_net:
