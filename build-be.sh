@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DOCKER_FOLDER_PATH=/root/projects
-CAPSTONE_FOLDER_PATH=/root/projects/dicoding-capstone-backend
+DOCKER_FOLDER_PATH=/root/deployment
+CAPSTONE_FOLDER_PATH=/root/deployment/backend
 
 # update local repository
 cd $CAPSTONE_FOLDER_PATH

@@ -1,3 +1,6 @@
 dicoding-capstone-backend/
+backend/
+dicoding-capstone-frontend/
+frontend/
 
 .env

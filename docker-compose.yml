@@ -50,6 +50,8 @@ services:
       context: "./go-1.17"
     container_name: "go"
     tty: true
+    networks:
+      - "local_net"
     volumes:
       - "./go-1.17/bin:/go/bin"
       - "./go-1.17/pkg:/go/pkg"
