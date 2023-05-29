@@ -18,6 +18,8 @@ services:
     image: "capstone-fe"
     networks:
       - "local_net"
+    volumes:
+      - "${FE_ROOT_FOLDER?:FE_ROOT_FOLDER required}/nginx.conf:/etc/nginx/conf.d/default.conf"
 
   capstone-be:
     container_name: dicoding-capstone-backend
