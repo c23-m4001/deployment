@@ -1,9 +1,12 @@
 # Moneta
 Moneta is a Web-based application to manage our daily cashflow.
 
+## Deployment
 | Nginx | Docker | Redoc | OpenApi | Digital Ocean Droplet | Github |
 | --- | --- | --- | --- | --- | --- |
-|  <img width="100" src="https://raw.githubusercontent.com/get-icon/geticon/fc0f660daee147afb4a56c64e12bde6486b73e39/icons/nginx.svg" /> | <img width="100" src="https://raw.githubusercontent.com/get-icon/geticon/fc0f660daee147afb4a56c64e12bde6486b73e39/icons/docker.svg" /> | <img width="100" src="https://raw.githubusercontent.com/Rebilly/ReDoc/master/docs/images/redoc-logo.png" /> | <img width="100" src="https://cdn.worldvectorlogo.com/logos/openapi-1.svg" /> | <img width="100" src="https://raw.githubusercontent.com/get-icon/geticon/fc0f660daee147afb4a56c64e12bde6486b73e39/icons/digital-ocean.svg" /> |  <img width="100" src="https://raw.githubusercontent.com/get-icon/geticon/fc0f660daee147afb4a56c64e12bde6486b73e39/icons/github.svg" /> |
+| <a href="https://nginx.com"><img width="100" src="https://github.com/c23-m4001/.github/raw/master/assets/react.png" /></a> | <a href="https://docker.com"><img width="100" src="https://github.com/c23-m4001/.github/raw/master/assets/docker.png" /></a> | <a href="https://redocly.com"><img width="100" src="https://github.com/c23-m4001/.github/raw/master/assets/redoc.png" /></a> | <a href="https://www.openapis.org/"><img width="100" src="https://github.com/c23-m4001/.github/raw/master/assets/openapi.png" /></a> | <a href="https://digitalocean.com"><img width="100" src="https://github.com/c23-m4001/.github/raw/master/assets/digital_ocean.png" /></a> | <a href="https://github.com"><img width="100" src="https://github.com/c23-m4001/.github/raw/master/assets/github.png" /></a> |
+
+
 
 ## Deployment
 
