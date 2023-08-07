@@ -74,6 +74,7 @@ services:
       - 80:80
     volumes:
       - "./nginx.conf:/etc/nginx/conf.d/default.conf"
+      - "~/aws-deployment/cv/:/usr/share/nginx/cv"
     networks:
       - "local_net"
     depends_on:
